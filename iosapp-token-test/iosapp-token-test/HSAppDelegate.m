@@ -7,12 +7,18 @@
 //
 
 #import "HSAppDelegate.h"
+#import "HSMainViewController.h"
 
 @implementation HSAppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
+    // Override point for customization after application launch.
+	HSMainViewController *viewController = [[HSMainViewController alloc] initWithNibName:@"HSMainViewController" bundle:nil];
+    UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:viewController];
+    navController.toolbarHidden = NO;
+    [[self window] setRootViewController:navController];
     // Override point for customization after application launch.
     self.window.backgroundColor = [UIColor whiteColor];
     [self.window makeKeyAndVisible];
